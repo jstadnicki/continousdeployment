@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace continousdeployment.Controllers
 {
+    using NUnit.Framework;
+
     public class HomeController: Controller
     {
         public ActionResult Index()
@@ -25,6 +27,16 @@ namespace continousdeployment.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+    }
+
+    [TestFixture]
+    public class TestThatDoesNotPass
+    {
+        [Test]
+        public void ImAFailure()
+        {
+            Assert.True(false);
         }
     }
 }
